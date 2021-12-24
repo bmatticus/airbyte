@@ -116,7 +116,8 @@ public class NormalizationActivityImpl implements NormalizationActivity {
         NormalizationRunnerFactory.create(
             workerConfigs,
             destinationLauncherConfig.getDockerImage(),
-            processFactory),
+            processFactory,
+            NormalizationRunnerFactory.NORMALIZATION_VERSION),
         workerEnvironment);
   }
 
