@@ -118,10 +118,10 @@ public class DbtTransformationActivityImpl implements DbtTransformationActivity 
         new DbtTransformationRunner(
             workerConfigs,
             processFactory, NormalizationRunnerFactory.create(
-            workerConfigs,
-            destinationLauncherConfig.getDockerImage(),
-            processFactory,
-            NormalizationRunnerFactory.NORMALIZATION_VERSION)));
+                workerConfigs,
+                destinationLauncherConfig.getDockerImage(),
+                processFactory,
+                NormalizationRunnerFactory.NORMALIZATION_VERSION)));
   }
 
 }
