@@ -19,7 +19,7 @@ jobs:
         id: detect-changed-modules
         run: |
           git fetch
-          echo $(git diff --name-only origin/master...HEAD)
+          echo $(git diff --name-only $(git merge-base master HEAD) HEAD)
           echo "::set-output name=changed-modules::'$(python ./tools/ci_static_check_reports/detect_changed_modules.py $(git diff --name-only origin/master...HEAD))'"
   build-reports:
     name: Build Static Checkers Reports
