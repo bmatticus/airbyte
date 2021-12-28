@@ -37,5 +37,4 @@ def list_changed_modules(changed_files: List[str]) -> Set[str]:
 
 if __name__ == "__main__":
     changed_modules = list_changed_modules(sys.argv[1:])
-    changed_modules.add("airbyte-integrations/connectors/source-greenhouse")
     print(" ".join(changed_modules))
