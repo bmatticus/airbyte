@@ -18,7 +18,7 @@ jobs:
       - name: Detect Changed Modules
         id: detect-changed-modules
         run: |
-          echo $(git merge-base remotes/origin/${GITHUB_HEAD_REF} remotes/origin/master)
+          echo $(git merge-base HEAD remotes/origin/master)
   build-reports:
     name: Build Static Checkers Reports
     needs:
