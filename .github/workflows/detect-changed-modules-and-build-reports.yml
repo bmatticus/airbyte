@@ -20,6 +20,8 @@ jobs:
         run: |
           git fetch
           echo $(git rev-parse HEAD && git rev-parse origin/master)
+          echo $(git branch --show-current)
+          echo ${GITHUB_HEAD_REF}
           echo $(git merge-base HEAD origin/master)
           echo $(git diff --name-only $(git merge-base HEAD origin/master))
           echo $(python ./tools/ci_static_check_reports/detect_changed_modules.py $(git diff --name-only $(git merge-base HEAD origin/master)))
