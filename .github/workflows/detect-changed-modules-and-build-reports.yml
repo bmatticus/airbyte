@@ -15,10 +15,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7
+      - name: Fetch Branches
+        run: |
+          git fetch && echo $(git branch --list)
       - name: Detect Changed Modules
         id: detect-changed-modules
         run: |
-          echo $(git branch --list)
+          echo "::set-output name=changed-modules::'$(python ./tools/ci_static_check_reports/detect_changed_modules.py $(git diff --name-only $(git merge-base remotes/origin/${GITHUB_HEAD_REF} remotes/origin/master)))'"
   build-reports:
     name: Build Static Checkers Reports
     needs:
